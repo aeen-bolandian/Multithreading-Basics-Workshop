@@ -18,5 +18,18 @@ public class Example04 {
     {
         //TODO: create a thread and start it
         //TODO: print a message after the thread is done
+
+        Thread t = new Thread(new MyRunnable());
+        t.start();
+
+        try {
+            t.join();
+        }
+        catch (InterruptedException e) {
+            System.out.println("Main thread interrupted while waiting for thread t");
+        }
+
+        System.out.println("Thread has been finished\nExiting main thread");
+
     }
 }
